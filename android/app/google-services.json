@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "555193010702",
+    "project_id": "flutter-cham-cong",
+    "storage_bucket": "flutter-cham-cong.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555193010702:android:7c104d701302cd67728a5f",
+        "android_client_info": {
+          "package_name": "com.example.cham_cong_qr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtkCViF3CTUW24hGKSiL6nEiipc2rntjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

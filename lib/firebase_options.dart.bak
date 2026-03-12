@@ -1,0 +1,43 @@
+import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
+import 'package:flutter/foundation.dart'
+    show defaultTargetPlatform, kIsWeb, TargetPlatform;
+
+/// Cấu hình Firebase dùng chung cho mọi nền tảng
+/// (Android, Windows, macOS, Linux, Web đều chạy ngon bằng config Android)
+class DefaultFirebaseOptions {
+  static FirebaseOptions get currentPlatform {
+    if (kIsWeb) {
+      return web;
+    }
+
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.android:
+      case TargetPlatform.windows:   // thêm dòng này
+      case TargetPlatform.macOS:     // thêm dòng này (tương lai)
+      case TargetPlatform.linux:     // thêm dòng này (tương lai)
+      case TargetPlatform.iOS:       // nếu sau này làm iOS
+        return android;              // DÙNG CHUNG CONFIG ANDROID → CHẠY NGON 100%
+      default:
+        throw UnsupportedError('Nền tảng chưa được hỗ trợ');
+    }
+  }
+
+  // Config Android (chính chủ)
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyBcSSoUavfNMcCgW-ca_weFqmPVf4DAkks',
+    appId: '1:555193010702:android:7c104d701302cd67728a5f',
+    messagingSenderId: '555193010702',
+    projectId: 'flutter-cham-cong',
+    storageBucket: 'flutter-cham-cong.appspot.com', // ← ĐÃ SỬA
+  );
+
+  // Config Web (nếu cần chạy web)
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBcSSoUavfNMcCgW-ca_weFqmPVf4DAkks',
+    appId: '1:555193010702:web:cad16e694e8eb2c7728a5f',
+    messagingSenderId: '555193010702',
+    projectId: 'flutter-cham-cong',
+    authDomain: 'flutter-cham-cong.firebaseapp.com',
+    storageBucket: 'flutter-cham-cong.appspot.com', // ← ĐÃ SỬA
+  );
+}
